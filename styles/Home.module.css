@@ -6,10 +6,50 @@
   max-width: 800px;
   margin-top: 3rem;
 }
+.container {
+  background-color: pink;
+}
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .container {
+    background-color: lightseagreen;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .container {
+    background-color: silver;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .container {
+    background-color: red;
+  }
+}
+
+@media (min-width: 1800px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .container {
+    background-color: purple !important;
   }
 }
