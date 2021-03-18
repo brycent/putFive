@@ -1,8 +1,9 @@
-import Head from 'next/head';
-import React, { useState } from 'react';
-import { Nav, Navbar, Container, Modal, Button } from 'react-bootstrap';
-import ModalHeader from 'react-bootstrap/esm/ModalHeader';
-import styles from '../../styles/components/navbar.module.css';
+import Head from "next/head";
+import React, { useState } from "react";
+import { Nav, Navbar, Container, Modal, Button } from "react-bootstrap";
+import { Login } from "./Login/Login";
+import ModalHeader from "react-bootstrap/esm/ModalHeader";
+import styles from "../../styles/components/navbar.module.css";
 
 export const LandingNavbar = () => {
   const [show, setShow] = useState(false);
@@ -21,23 +22,21 @@ export const LandingNavbar = () => {
       {/*Login-SignUp Modal*/}
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
-          If you're reading this you have made it to the modal body! Yay
-        </Modal.Body>
-        <Modal.Footer>
+          <Login />
           <Button onClick={handleClose}>Login</Button>
-        </Modal.Footer>
+        </Modal.Body>
       </Modal>
       {/*Navbar*/}
-      <Navbar bg='primary' expand='lg'>
+      <Navbar bg="primary" expand="lg">
         <Container>
-          <Navbar.Brand href='#home' className={styles.navbarText}>
+          <Navbar.Brand href="#home" className={styles.navbarText}>
             PutFive
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ml-auto'>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
               <Nav.Link
-                href='#link'
+                href="#link"
                 className={styles.navbarText}
                 onClick={(e) => {
                   e.preventDefault();
