@@ -1,7 +1,8 @@
 /* eslint-disable import/no-unresolved */
-import Head from 'next/head';
-import { LandingNavbar } from '../components/Navbar/LandingNavbar';
-import styles from '../styles/Home.module.css';
+import Head from "next/head";
+import { LandingNavbar } from "../components/Navbar/LandingNavbar";
+import { LandingContent } from "../components/LandingContent/LandingContent";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
       <LandingNavbar />
-      <div className={styles.container}>test</div>
+      <LandingContent />
     </div>
   );
 }
