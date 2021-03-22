@@ -1,0 +1,29 @@
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 400px) {
+  /* Styles */
+  .form {
+    width: 300px;
+    padding: 25px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  /* Styles */
+  .form {
+    width: 350px;
+    padding: 25px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+}
+
+.start {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login {
+  text-align: center;
+}
