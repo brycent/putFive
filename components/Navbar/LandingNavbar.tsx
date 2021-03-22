@@ -23,7 +23,9 @@ export const LandingNavbar = () => {
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
           <Login />
-          <Button onClick={handleClose}>Welcome back PutFiver. </Button>
+          <Button color="sucess" onClick={handleClose}>
+            Login{" "}
+          </Button>
         </Modal.Body>
       </Modal>
 
@@ -40,7 +42,7 @@ export const LandingNavbar = () => {
                 className={styles.navbarText}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleShow();
+                  handleShow(e);
                 }}
               >
                 Login
