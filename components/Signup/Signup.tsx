@@ -8,15 +8,15 @@ export const Signup = () => {
       <Form>
         <FormGroup>
           <Label for="Username">Username</Label>
-          <Input type="text" />
+          <Input type="text" placeholder="Create a username" />
         </FormGroup>
         <FormGroup>
           <Label for="Email">Email</Label>
-          <Input type="email" />
+          <Input type="email" placeholder="Your email" />
         </FormGroup>
         <FormGroup>
           <Label for="password">Password</Label>
-          <Input type="text" />
+          <Input type="text" placeholder="Something super secret" />
         </FormGroup>
       </Form>
       <div>

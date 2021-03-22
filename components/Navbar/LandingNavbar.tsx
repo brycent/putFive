@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import { Nav, Navbar, Container, Modal, Button } from "react-bootstrap";
 import { Login } from "./Login/Login";
-import ModalHeader from "react-bootstrap/esm/ModalHeader";
+
 import styles from "../../styles/components/navbar.module.css";
 
 export const LandingNavbar = () => {
@@ -10,7 +10,7 @@ export const LandingNavbar = () => {
   const handleClose = () => {
     setShow(false);
   };
-  const handleShow = () => {
+  const handleShow = (event) => {
     event.preventDefault();
     setShow(true);
   };
@@ -19,14 +19,14 @@ export const LandingNavbar = () => {
       <Head>
         <title>Create Next App</title>
       </Head>
-      {/*Login-SignUp Modal*/}
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
           <Login />
-          <Button onClick={handleClose}>Login</Button>
+          <Button onClick={handleClose}>Welcome back PutFiver. </Button>
         </Modal.Body>
       </Modal>
-      {/*Navbar*/}
+
       <Navbar bg="primary" expand="lg">
         <Container>
           <Navbar.Brand href="#home" className={styles.navbarText}>
