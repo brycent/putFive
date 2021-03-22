@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useState } from "react";
-import { Nav, Navbar, Container, Modal, Button } from "react-bootstrap";
+import { Nav, Navbar, Container, Modal } from "react-bootstrap";
 import { Login } from "./Login/Login";
 
 import styles from "../../styles/components/navbar.module.css";
@@ -22,10 +22,7 @@ export const LandingNavbar = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
-          <Login />
-          <Button color="sucess" onClick={handleClose}>
-            Login{" "}
-          </Button>
+          <Login setShow={setShow} />
         </Modal.Body>
       </Modal>
 
