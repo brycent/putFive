@@ -1,20 +1,34 @@
 import React, { useState } from "react";
 import { Input, Form, FormGroup, Button } from "reactstrap";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+import { Auth } from "aws-amplify";
 import styles from "../../../styles/components/Login/Login.module.css";
 import UserPool from "../../../Auth/UserPool";
 
 export const Login = (props) => {
   const { setShow } = props;
   const [email, setEmail] = useState("");
-  // const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleClose = () => {
     setShow(false);
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async () => {
+    try {
+      const { user } = await Auth.signUp({
+        username,
+        password,
+        attributes: {},
+      });
+      console.log(user);
+    } catch (error) {
+      console.error("Error ==>", error);
+    }
+  };
+
+  const onOldSubmit = (event) => {
     event.preventDefault();
     const user = new CognitoUser({
       Username: email,

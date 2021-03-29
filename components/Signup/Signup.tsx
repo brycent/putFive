@@ -1,27 +1,35 @@
 import React, { useState } from "react";
+import { Auth } from "aws-amplify";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import UserPool from "../../Auth/UserPool";
+import { ConfirmSignup } from "./confirmSignup";
 import styles from "../../styles/components/Signup/Signup.module.css";
 
 export const Signup = () => {
   const [email, setEmail] = useState("");
-  // const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState(false);
 
-  const onSubmit = (event) => {
+  const onSignup = async (event) => {
     event.preventDefault();
-    UserPool.signUp(email, password, [], null, (err, data) => {
-      if (err) {
-        console.log(err);
-      }
-      console.log(data);
-    });
+    try {
+      Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email,
+        },
+      });
+      console.log("SUCCESS: signup works");
+      setConfirm(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  return (
+  return confirm === false ? (
     <div className={styles.form}>
-      <Form onSubmit={onSubmit}>
-        {/* <FormGroup>
+      <Form onSubmit={onSignup}>
+        <FormGroup>
           <Label for="Username">Username</Label>
           <Input
             type="text"
@@ -31,7 +39,7 @@ export const Signup = () => {
               setUsername(event.target.value);
             }}
           />
-        </FormGroup> */}
+        </FormGroup>
         <FormGroup>
           <Label for="Email">Email</Label>
           <Input
@@ -59,11 +67,13 @@ export const Signup = () => {
         </div>
         <div className={styles.start}>
           <Button type="submit" color="success">
-            Start Betting 🥳
+            Sign Up 🥳
           </Button>
         </div>
       </Form>
     </div>
+  ) : (
+    <ConfirmSignup username={username} setConfirm={setConfirm} />
   );
 };
 
