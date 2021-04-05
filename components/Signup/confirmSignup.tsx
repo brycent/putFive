@@ -18,10 +18,10 @@ export const ConfirmSignup = (props) => {
   };
   return (
     <div className={styles.form}>
-      <h3>
-        Congrats on the signup {username}, please confirm your email to get
-        started :)
-      </h3>
+      <p>
+        {username}, check your email for the one-time passcode and confirm your
+        email to start betting.
+      </p>
       <Form onSubmit={onVerify}>
         <FormGroup>
           <Input
@@ -35,7 +35,7 @@ export const ConfirmSignup = (props) => {
         </FormGroup>
         <div className={styles.start}>
           <Button type="submit" color="success">
-            Start Betting
+            Start Betting 🥳
           </Button>
         </div>
       </Form>

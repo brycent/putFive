@@ -15,13 +15,10 @@ export const Login = (props) => {
     setShow(false);
   };
 
-  const onSubmit = async () => {
+  const onLogin = async (event) => {
+    event.preventDefault();
     try {
-      const { user } = await Auth.signUp({
-        username,
-        password,
-        attributes: {},
-      });
+      const user = await Auth.signIn(username, password);
       console.log(user);
     } catch (error) {
       console.error("Error ==>", error);
@@ -54,14 +51,14 @@ export const Login = (props) => {
   };
   return (
     <div className={styles.formContainer}>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onLogin}>
         <h6>Welcome Back PutFiver </h6>
         <FormGroup>
           <Input
             placeholder="username"
-            value={email}
+            value={username}
             onChange={(event) => {
-              setEmail(event.target.value);
+              setUsername(event.target.value);
             }}
           />
         </FormGroup>
